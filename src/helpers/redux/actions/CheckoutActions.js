@@ -25,7 +25,6 @@ export const addToCart = (comicData) => dispatch => {
         .then(res => {
             console.log(prefix, 'color:lightblue', "Item adicionado no carrinho")
             comicData['id_purchase'] = res.id
-
             dispatch({
                 type: STOP_ADDING_TO_CART,
                 payload: comicData

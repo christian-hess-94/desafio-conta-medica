@@ -27,7 +27,9 @@ const useStyles = makeStyles(theme => ({
 const TopMenu = (props) => {
     console.log("TOPMENU PROPS", props);
 
-    if (!props.updatedCart || props.cart.length === 0) {
+    if (!props.updatedCart && props.cart.length >= 0) {
+        console.log("Buscando itens do carrinho");
+
         props.updateCart(props.loggedAccount.email)
     }
     const [anchorEl, setAnchorEl] = React.useState(null);

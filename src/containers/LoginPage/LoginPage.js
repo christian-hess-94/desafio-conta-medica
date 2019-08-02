@@ -22,8 +22,8 @@ class LoginPage extends Component {
 
     onSubmit = (values) => {
         this.setState({ loading: { submitting: true } })
-        //this.props.logIntoAccount(values)
-        this.props.logIntoAccount({ email: 'chr@gmail.com', password: 'chr15091994' })
+        this.props.logIntoAccount(values)
+        // this.props.logIntoAccount({ email: 'christianhess94@gmail.com', password: 'chr15091994' })
 
     }
     render() {
@@ -36,17 +36,17 @@ class LoginPage extends Component {
         if (this.props.errorWhenLogging) {
             switch (this.props.errorCodeWhenLogging) {
                 case 'auth/user-not-found':
-                    errorMessage = "E-mail não cadastrado"
+                    errorMessage = "Account doesn't exist"
                     break;
                 case 'auth/user-disabled':
-                    errorMessage = "Esta conta foi desabilitada"
+                    errorMessage = "This account was disabled"
 
                     break;
                 case 'auth/wrong-password':
                     errorMessage = "Wrong password"
                     break;
                 default:
-                    errorMessage = "Houve um erro"
+                    errorMessage = "There was an error" + this.props.errorCodeWhenLogging
                     break;
             }
 
@@ -64,7 +64,7 @@ class LoginPage extends Component {
                     {this.props.loggingIntoAccount ? <Spinner text="Connecting..." /> : <LoginForm errorMessage={errorMessage} submitting={this.state.submitting} onSubmit={this.onSubmit} />}
                 </Grid>
                 <Grid item>
-                    {this.state.loading.submitting ? null :
+                    {this.props.loggingIntoAccount ? null :
                         <Link to="/criar-conta" style={{ textDecoration: 'none' }}>
                             <Button variant="contained" color="primary">
                                 Create New Account

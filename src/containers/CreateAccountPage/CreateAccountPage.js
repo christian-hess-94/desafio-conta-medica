@@ -47,10 +47,10 @@ class CreateAccountPage extends Component {
         let errorMessage = undefined;
         switch (this.props.errorCodeWhenCreatingAccount) {
             case 'auth/email-already-in-use':
-                errorMessage = "E-mail já cadastrado"
+                errorMessage = "E-mail already in use"
                 break;
             case 'auth/invalid-email':
-                errorMessage = "E-mail inválido"
+                errorMessage = "Invalid E-mail address"
 
                 break;
             case 'auth/weak-password':
@@ -58,7 +58,7 @@ class CreateAccountPage extends Component {
                 break;
             default:
                 if (this.state.errors.createAccountErrorCode) {
-                    errorMessage = "Ocorreu um erro: " + this.state.errors.createAccountErrorCode
+                    errorMessage = "There was an error: " + this.state.errors.createAccountErrorCode
                 }
                 break;
         }

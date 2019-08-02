@@ -63,6 +63,7 @@ export default function (state = initialState, action) {
             console.log(prefix, 'color:lightgreen', "Iniciando atualização do carrinho")
             return {
                 ...state,
+                updatedCart: false,
                 updatingCart: true
             }
 
