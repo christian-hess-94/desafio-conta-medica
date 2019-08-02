@@ -1,8 +1,10 @@
-import { AcUnit, MenuOutlined } from '@material-ui/icons'
-import { AppBar, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Badge, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
 
+import { MenuOutlined } from '@material-ui/icons'
 import React from 'react';
+import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
+import { updateCart } from './../../../helpers/redux/actions/CheckoutActions'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -14,9 +16,20 @@ const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1,
     },
+    margin: {
+        margin: theme.spacing(2),
+    },
+    padding: {
+        padding: theme.spacing(0, 2),
+    },
 }));
 
 const TopMenu = (props) => {
+    console.log("TOPMENU PROPS", props);
+
+    if (!props.updatedCart || props.cart.length === 0) {
+        props.updateCart(props.loggedAccount.email)
+    }
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     function handleClick(event) {
@@ -37,6 +50,8 @@ const TopMenu = (props) => {
         setAnchorEl(null);
     }
     const classes = useStyles();
+    console.log("Numero de coisas no carrinho", props.cart.length);
+
     return (
         <div className={classes.root}>
 
@@ -63,7 +78,11 @@ const TopMenu = (props) => {
                         onClose={handleClose}
                     >
                         <MenuItem disabled>Logado como: {props.account.email}</MenuItem>
-                        <MenuItem onClick={handleOpenCarrinho}>Ver carrinho</MenuItem>
+                        <MenuItem onClick={handleOpenCarrinho}>Ver carrinho
+                        <Badge className={classes.margin} badgeContent={props.cart.length} color="primary">
+                                <div />
+                            </Badge>
+                        </MenuItem>
                         <MenuItem onClick={props.logoff}>Logout</MenuItem>
                     </Menu>
                 </Toolbar>
@@ -71,5 +90,14 @@ const TopMenu = (props) => {
         </div>
     )
 }
+const mapStateToProps = state => ({
+    updatingCart: state.checkout.updatingCart,
+    updatedCart: state.checkout.updatedCart,
+    errorWhenUpdatingCart: state.checkout.errorWhenUpdatingCart,
+    errorCodeWhenUpdatingCart: state.checkout.errorCodeWhenUpdatingCart,
 
-export default TopMenu;
+    cart: state.checkout.cart,
+    loggedAccount: state.authentication.loggedAccount
+})
+
+export default connect(mapStateToProps, { updateCart })(TopMenu);

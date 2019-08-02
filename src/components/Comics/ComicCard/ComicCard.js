@@ -30,11 +30,12 @@ const useStyles = makeStyles(theme => ({
 
 const ComicCard = (props) => {
 
+
     const classes = useStyles();
 
     return (
         <Card className={classes.card}>
-            <CardActionArea>
+            <CardActionArea >
                 <CardHeader
                     avatar={
                         <Avatar

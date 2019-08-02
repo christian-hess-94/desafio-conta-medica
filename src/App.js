@@ -14,7 +14,7 @@ function App() {
         <div className="App">
             <Provider store={Store}>
                 <Router>
-                    <Redirect from='/:param' to='/' />
+                    {/* <Redirect from='/:param' to='/' /> */}
                     <Route path="/" exact component={LoginPage} />
                     <Route path="/criar-conta" exact component={CreateAccountPage} />
                     <Route path="/quadrinhos" component={LayoutPage} />

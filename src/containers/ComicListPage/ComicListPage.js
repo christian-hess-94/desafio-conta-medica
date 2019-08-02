@@ -2,10 +2,11 @@ import { Button, Container, Grid } from '@material-ui/core';
 import React, { Component } from 'react'
 
 import ComicCard from '../../components/Comics/ComicCard/ComicCard';
+import { Link } from 'react-router-dom'
 import Spinner from './../../components/UI/Spinner/Spinner'
 import marvelInstance from './../../helpers/axios/marvelInstance'
 
-export default class ComicListPage extends Component {
+class ComicListPage extends Component {
 
     state = {
         comics: [],
@@ -35,6 +36,8 @@ export default class ComicListPage extends Component {
     }
 
     render() {
+        console.log(this.props);
+
         let firstColumn = []
 
         let secondColumn = []
@@ -53,20 +56,25 @@ export default class ComicListPage extends Component {
                 {
                     this.state.comics.length === 0 ? <Spinner text="Carregando lista de quadrinhos..." /> :
                         <Grid container direction="row" spacing={4} style={{ justifyContent: 'center', alignContent: 'center', marginTop: 90 }}>
-                            <Grid spacing={3} item direction="column">
+                            <Grid item>
                                 {firstColumn.map(comic => {
                                     return (
                                         <Grid key={comic.id}>
-                                            <ComicCard comic={comic} />
+                                            <Link style={{ textDecoration: 'none' }} to={`/quadrinhos/detalhes/${comic.id}`}>
+                                                <ComicCard comic={comic} />
+                                            </Link>
                                         </Grid>
                                     )
                                 })}
                             </Grid>
-                            <Grid spacing={3} item direction="column">
+                            <Grid item >
                                 {secondColumn.map(comic => {
+
                                     return (
                                         <Grid key={comic.id} item>
-                                            <ComicCard comic={comic} />
+                                            <Link style={{ textDecoration: 'none' }} to={`/quadrinhos/detalhes/${comic.id}`}>
+                                                <ComicCard comic={comic} />
+                                            </Link>
                                         </Grid>
                                     )
                                 })}
@@ -86,3 +94,5 @@ export default class ComicListPage extends Component {
         )
     }
 }
+
+export default ComicListPage
