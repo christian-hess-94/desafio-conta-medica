@@ -90,7 +90,7 @@ export default class ComicDetailsPage extends Component {
         let loadingComicSpinner = undefined
 
         if (this.state.comicLoading) {
-            loadingComicSpinner = <Spinner text="Carregando quadrinho..." />
+            loadingComicSpinner = <Spinner text="Loading quadrinho..." />
         } else {
             loadingComicSpinner = undefined
             if (this.state.comic && (!this.state.comicError)) {
@@ -106,16 +106,16 @@ export default class ComicDetailsPage extends Component {
         let charactersCard = undefined
         let loadingCharactersSpinner = undefined
         if (this.state.charactersLoading) {
-            loadingCharactersSpinner = <Spinner text="Carregando personagens..." />
+            loadingCharactersSpinner = <Spinner text="Loading heroes..." />
         } else {
             loadingCharactersSpinner = undefined
             if (this.state.characters && (!this.state.charactersError)) {
-                console.log("%c Renderizando informações dos personagens", 'font-size:25px;color:lightblue');
+                console.log("%c Renderizando informações dos heroes", 'font-size:25px;color:lightblue');
                 if (this.state.characters.length > 0) {
                     charactersCard = <CharactersCard characters={this.state.characters} />
                 } else {
-                    console.log("%c Não tem personagens", 'font-size:15px;color:lightblue');
-                    charactersCard = <Typography variant="h6" component="h2">Este quadrinho não possui personagens</Typography>
+                    console.log("%c Não tem heroes", 'font-size:15px;color:lightblue');
+                    charactersCard = <Typography variant="h6" component="h2">Este quadrinho não possui heroes</Typography>
                 }
 
             }
@@ -125,7 +125,7 @@ export default class ComicDetailsPage extends Component {
         let creatorsCard = undefined
         let loadingCreatorSpinner = undefined
         if (this.state.creatorsLoading) {
-            loadingCreatorSpinner = <Spinner text="Carregando criadores..." />
+            loadingCreatorSpinner = <Spinner text="Loading criadores..." />
         } else {
             loadingCreatorSpinner = undefined
             if (this.state.creators && (!this.state.creatorsError)) {
@@ -149,7 +149,7 @@ export default class ComicDetailsPage extends Component {
                         <hr />
                         <Grid style={{ justifyContent: 'space-around', }} container spacing={4}>
                             <Grid item>
-                                <Typography variant="h5" component="h2">Personagens</Typography>
+                                <Typography variant="h5" component="h2">Heroes</Typography>
                                 {loadingCharactersSpinner}
 
                                 {charactersCard}

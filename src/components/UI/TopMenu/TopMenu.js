@@ -38,12 +38,12 @@ const TopMenu = (props) => {
 
     const handleOpenLista = () => {
         handleClose()
-        props.history.push('/quadrinhos/lista')
+        props.history.push('/comics/list')
     }
 
     const handleOpenCarrinho = () => {
         handleClose()
-        props.history.push('/quadrinhos/carrinho')
+        props.history.push('/comics/checkout')
     }
 
     function handleClose() {
@@ -58,7 +58,7 @@ const TopMenu = (props) => {
             <AppBar position="fixed">
                 <Toolbar>
                     <Button color="inherit" onClick={handleOpenLista}>
-                        Início
+                        Home
                     </Button>
                     <Typography variant="h6" className={classes.title}>
                         Marvel
@@ -77,8 +77,8 @@ const TopMenu = (props) => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem disabled>Logado como: {props.account.email}</MenuItem>
-                        <MenuItem onClick={handleOpenCarrinho}>Ver carrinho
+                        <MenuItem disabled>Connected as: {props.account.email}</MenuItem>
+                        <MenuItem onClick={handleOpenCarrinho}>Checkout
                         <Badge className={classes.margin} badgeContent={props.cart.length} color="primary">
                                 <div />
                             </Badge>

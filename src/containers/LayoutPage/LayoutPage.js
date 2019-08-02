@@ -16,9 +16,9 @@ class LayoutPage extends Component {
         return (
             <div>
                 <TopMenu history={this.props.history} account={this.props.loggedAccount} logoff={this.props.logOffAccount} />
-                <Route path={`${this.props.match.url}/lista`} component={ComicListPage} />
-                <Route path={`${this.props.match.url}/detalhes/:id`} component={ComicDetailsPage} />
-                <Route path={`${this.props.match.url}/carrinho`} component={CheckoutPage} />
+                <Route path={`${this.props.match.url}/list`} component={ComicListPage} />
+                <Route path={`${this.props.match.url}/details/:id`} component={ComicDetailsPage} />
+                <Route path={`${this.props.match.url}/checkout`} component={CheckoutPage} />
             </div>
         );
     }

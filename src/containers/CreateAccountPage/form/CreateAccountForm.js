@@ -51,12 +51,12 @@ const renderTextField = ({
 
 
 let CreateAccountForm = (props) => {
-    const { handleSubmit, pristine, reset, submitting, classes } = props
+    const { handleSubmit, pristine, /* reset, */ submitting, /* classes */ } = props
     return (
         <Card>
             <form onSubmit={handleSubmit}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">Criar conta</Typography>
+                    <Typography variant="h5" component="h2">Create Account</Typography>
 
                     <Grid container spacing={3}>
                         <Grid container>
@@ -70,7 +70,7 @@ let CreateAccountForm = (props) => {
                             <Field
                                 type="password"
                                 name="password"
-                                label="Senha"
+                                label="Password"
                                 component={renderTextField} />
                         </Grid>
 
@@ -79,7 +79,7 @@ let CreateAccountForm = (props) => {
                 </CardContent>
                 <CardActions>
                     <Button type="submit" disabled={pristine || submitting}>
-                        Criar conta
+                        Create Account
                     </Button>
 
                     <Typography variant="body1" component="h2" color="secondary">{props.errorMessage}</Typography>

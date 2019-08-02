@@ -54,13 +54,13 @@ class ComicListPage extends Component {
         return (
             <Container>
                 {
-                    this.state.comics.length === 0 ? <Spinner text="Carregando lista de quadrinhos..." /> :
+                    this.state.comics.length === 0 ? <Spinner text="Loading comics list..." /> :
                         <Grid container direction="row" spacing={4} style={{ justifyContent: 'center', alignContent: 'center', marginTop: 90 }}>
                             <Grid item>
                                 {firstColumn.map(comic => {
                                     return (
                                         <Grid key={comic.id}>
-                                            <Link style={{ textDecoration: 'none' }} to={`/quadrinhos/detalhes/${comic.id}`}>
+                                            <Link style={{ textDecoration: 'none' }} to={`/comics/details/${comic.id}`}>
                                                 <ComicCard comic={comic} />
                                             </Link>
                                         </Grid>
@@ -72,7 +72,7 @@ class ComicListPage extends Component {
 
                                     return (
                                         <Grid key={comic.id} item>
-                                            <Link style={{ textDecoration: 'none' }} to={`/quadrinhos/detalhes/${comic.id}`}>
+                                            <Link style={{ textDecoration: 'none' }} to={`/comics/details/${comic.id}`}>
                                                 <ComicCard comic={comic} />
                                             </Link>
                                         </Grid>

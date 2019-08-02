@@ -17,7 +17,7 @@ function App() {
                     {/* <Redirect from='/:param' to='/' /> */}
                     <Route path="/" exact component={LoginPage} />
                     <Route path="/criar-conta" exact component={CreateAccountPage} />
-                    <Route path="/quadrinhos" component={LayoutPage} />
+                    <Route path="/comics" component={LayoutPage} />
                 </Router>
             </Provider>
         </div>

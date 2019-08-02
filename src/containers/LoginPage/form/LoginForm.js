@@ -53,7 +53,7 @@ let LoginForm = (props) => {
         <Card>
             <form onSubmit={handleSubmit}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">Conectar</Typography>
+                    <Typography variant="h5" component="h2">Connect</Typography>
 
                     <Grid container spacing={3}>
                         <Grid container>
@@ -67,7 +67,7 @@ let LoginForm = (props) => {
                             <Field
                                 type="password"
                                 name="password"
-                                label="Senha"
+                                label="Password"
                                 component={renderTextField} />
                         </Grid>
 
@@ -77,7 +77,7 @@ let LoginForm = (props) => {
                 </CardContent>
                 <CardActions>
                     <Button type="submit" disabled={submitting}>
-                        Conectar
+                        Connect
                     </Button>
 
                     <Typography variant="body1" component="h2" color="secondary">{props.errorMessage}</Typography>

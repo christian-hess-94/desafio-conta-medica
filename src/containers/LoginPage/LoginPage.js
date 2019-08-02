@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import LoginForm from './form/LoginForm';
 import Spinner from './../../components/UI/Spinner/Spinner'
 import { connect } from 'react-redux'
-import { firebaseAuth } from './../../helpers/firebase/FirebaseEnv'
 import { logIntoAccount } from './../../helpers/redux/actions/AuthenticationActions'
 
 //Redux config
@@ -30,7 +29,7 @@ class LoginPage extends Component {
     render() {
 
         if (this.props.accountIsLogged && this.props.loggedAccount) {
-            this.props.history.push('/quadrinhos/lista')
+            this.props.history.push('/comics/list')
         }
 
         let errorMessage = undefined;
@@ -44,7 +43,7 @@ class LoginPage extends Component {
 
                     break;
                 case 'auth/wrong-password':
-                    errorMessage = "Senha incorreta"
+                    errorMessage = "Wrong password"
                     break;
                 default:
                     errorMessage = "Houve um erro"
@@ -62,13 +61,13 @@ class LoginPage extends Component {
             >
                 <Grid item />
                 <Grid item>
-                    {this.props.loggingIntoAccount ? <Spinner text="Conectando..." /> : <LoginForm errorMessage={errorMessage} submitting={this.state.submitting} onSubmit={this.onSubmit} />}
+                    {this.props.loggingIntoAccount ? <Spinner text="Connecting..." /> : <LoginForm errorMessage={errorMessage} submitting={this.state.submitting} onSubmit={this.onSubmit} />}
                 </Grid>
                 <Grid item>
                     {this.state.loading.submitting ? null :
                         <Link to="/criar-conta" style={{ textDecoration: 'none' }}>
                             <Button variant="contained" color="primary">
-                                Criar nova conta
+                                Create New Account
                         </Button>
                         </Link>
                     }

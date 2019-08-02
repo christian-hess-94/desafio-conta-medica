@@ -55,11 +55,11 @@ const ComicCard = (props) => {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {props.comic.description ? `${props.comic.description.substring(0, 100)}...` : 'Nenhuma descrição adicionada'}
+                        {props.comic.description ? `${props.comic.description.substring(0, 100)}...` : 'No descrpition added'}
                     </Typography>
 
                     <Typography variant="subtitle2" color="textSecondary" component="p">
-                        Clique para saber mais!
+                        Click to know more!
                     </Typography>
                 </CardContent>
             </CardActionArea>

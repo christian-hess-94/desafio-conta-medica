@@ -19,7 +19,7 @@ const CreatorsCard = (props) => {
                         subheader={
                             <Link key={creator.id} style={{ textDecoration: 'none' }}>
                                 <Button variant="text" color="primary"  >
-                                    Ver todos os quadrinhos feitos por este criador
+                                    See all comics made by this creator
                                 </Button>
                             </Link>}
                     />

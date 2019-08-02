@@ -23,7 +23,7 @@ const CharactersCard = (props) => {
                         subheader={
                             <Link key={character.id} style={{ textDecoration: 'none' }}>
                                 <Button variant="text" color="primary"  >
-                                    Ver todos os quadrinhos com este herói
+                                    See all comics with this hero
                                 </Button>
                             </Link>}
                     />

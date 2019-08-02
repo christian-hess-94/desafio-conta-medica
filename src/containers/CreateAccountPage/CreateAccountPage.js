@@ -34,13 +34,13 @@ class CreateAccountPage extends Component {
 
         let creatingSpinner = null
         if (this.props.creatingAccount) {
-            creatingSpinner = <Spinner text="Criando conta..." />
+            creatingSpinner = <Spinner text="Creating account..." />
         } else {
             creatingSpinner = null
         }
 
         if (this.props.accountIsLogged && this.props.loggedAccount) {
-            this.props.history.push('/quadrinhos/lista')
+            this.props.history.push('/comics/list')
         }
 
 
@@ -54,7 +54,7 @@ class CreateAccountPage extends Component {
 
                 break;
             case 'auth/weak-password':
-                errorMessage = "Senha fraca"
+                errorMessage = "Weak password"
                 break;
             default:
                 if (this.state.errors.createAccountErrorCode) {
@@ -73,7 +73,7 @@ class CreateAccountPage extends Component {
                 <Grid item>
                     {
                         this.props.loggingIntoAccount ?
-                            <Spinner text="Conectando..." />
+                            <Spinner text="Connecting..." />
                             :
                             <CreateAccountForm errorMessage={errorMessage} creating={this.state.creating} onSubmit={this.onSubmit} />
                     }
