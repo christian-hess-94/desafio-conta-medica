@@ -1,4 +1,4 @@
-import { Button, Grid } from '@material-ui/core';
+import { Avatar, Button, Grid, Typography } from '@material-ui/core';
 import React, { Component } from 'react'
 
 import { Link } from 'react-router-dom'
@@ -71,6 +71,25 @@ class LoginPage extends Component {
                         </Button>
                         </Link>
                     }
+                </Grid>
+
+                <Typography variant="caption" component="h2">Created by Christian Hess</Typography>
+                <Grid item container spacing={4} style={{ justifyContent: 'center' }}>
+                    <Grid item >
+                        <a target="_blank" rel="noopener noreferrer" href="mailto:christianhess94@gmail.com">
+                            <Avatar src='https://logodownload.org/wp-content/uploads/2018/03/gmail-logo-1.png' />
+                        </a>
+                    </Grid>
+                    <Grid item >
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/christian-wolf-alves-hess-105365116/">
+                            <Avatar src='https://cdn1.iconfinder.com/data/icons/logotypes/32/square-linkedin-512.png' />
+                        </a>
+                    </Grid>
+                    <Grid item >
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/christian-hess-94/desafio-conta-medica">
+                            <Avatar src='https://image.flaticon.com/icons/svg/25/25231.svg' />
+                        </a>
+                    </Grid>
                 </Grid>
             </Grid>
         )
