@@ -22,10 +22,11 @@ class LoginPage extends Component {
 
     onSubmit = (values) => {
         this.setState({ loading: { submitting: true } })
-        //this.props.logIntoAccount(values)
-        this.props.logIntoAccount({ email: 'christianhess94@gmail.com', password: 'chr15091994' })
-
+        this.props.logIntoAccount(values)
+        
     }
+
+    loginAdmin = () =>{}
     render() {
 
         if (this.props.accountIsLogged && this.props.loggedAccount) {
@@ -61,16 +62,19 @@ class LoginPage extends Component {
             >
                 <Grid item />
                 <Grid item>
-                    {this.props.loggingIntoAccount ? <Spinner text="Connecting..." /> : <LoginForm errorMessage={errorMessage} submitting={this.state.submitting} onSubmit={this.onSubmit} />}
+                    {this.props.loggingIntoAccount ? <Spinner text="Connecting..." subtext="If this takes too long, enable your browser to run 'unsafe' scripts and reload the page." /> : <LoginForm errorMessage={errorMessage} submitting={this.state.submitting} onSubmit={this.onSubmit} />}
                 </Grid>
                 <Grid item>
                     {this.props.loggingIntoAccount ? null :
-                        <Link to="/criar-conta" style={{ textDecoration: 'none' }}>
-                            <Button variant="contained" color="primary">
+                        <Link to="/create_account" style={{ textDecoration: 'none' }}>
+                            <Button variant="outlined" color="primary">
                                 Create New Account
-                        </Button>
+                            </Button>
                         </Link>
                     }
+                    {/*<Button onClick={this.loginAdmin} variant="contained" color="primary">
+                        LoginAdmin
+                </Button>*/}
                 </Grid>
 
                 <Typography variant="caption" component="h2">Created by Christian Hess</Typography>

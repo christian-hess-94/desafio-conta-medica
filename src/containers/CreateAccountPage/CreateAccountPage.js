@@ -73,7 +73,7 @@ class CreateAccountPage extends Component {
                 <Grid item>
                     {
                         this.props.loggingIntoAccount ?
-                            <Spinner text="Connecting..." />
+                            <Spinner text="Connecting..." subtext="If this takes too long, enable your browser to run 'unsafe' scripts and reload the page." />
                             :
                             <CreateAccountForm errorMessage={errorMessage} creating={this.state.creating} onSubmit={this.onSubmit} />
                     }

@@ -42,7 +42,7 @@ class ComicItem extends Component {
     }
 
     removeHandler = () => {
-        this.props.removeFromCart(this.props.id_purchase)
+        this.props.removeFromCart(this.props.id_purchase, this.props.cart)
     }
 
 

@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, Grid, TextField, Typography } from '@material-ui/core'
+import { CardHeader, Avatar, Button, Card, CardActionArea, CardActions, CardContent, Grid, TextField, Typography } from '@material-ui/core'
 import { Field, reduxForm } from 'redux-form'
 
 import React from 'react';
@@ -52,8 +52,12 @@ let LoginForm = (props) => {
     return (
         <Card>
             <form onSubmit={handleSubmit}>
+                <CardHeader 
+                title={<Typography variant="h3" component="h2">Welcome to Marvel Online Store!</Typography>}
+                
+                />
                 <CardContent>
-                    <Typography variant="h5" component="h2">Connect</Typography>
+                    <Typography variant="body1" component="h2">Please log in below, or create an account to continue</Typography>
 
                     <Grid container spacing={3}>
                         <Grid container>
@@ -76,7 +80,7 @@ let LoginForm = (props) => {
 
                 </CardContent>
                 <CardActions>
-                    <Button type="submit" disabled={submitting}>
+                    <Button type="submit" disabled={pristine || submitting}>
                         Connect
                     </Button>
 
@@ -89,8 +93,7 @@ let LoginForm = (props) => {
 
 LoginForm = reduxForm({
     form: 'login-account',
-    //validate,
-    destroyOnUnmount: false
+    validate,
 })(LoginForm)
 
 export default LoginForm;

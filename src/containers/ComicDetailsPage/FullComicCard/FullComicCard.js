@@ -65,7 +65,7 @@ const FullComicCard = (props) => {
                             `${props.comic.description.substring(0, props.comic.description.indexOf('<'))}`
                             :
                             props.comic.description
-                        : 'No descrpition added'}
+                        : 'No descripition added'}
                 </Typography>
                 <CardActions style={{ justifyContent: 'center' }}>
                     <Typography variant="h6" color="textSecondary" component="p">

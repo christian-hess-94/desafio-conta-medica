@@ -62,20 +62,24 @@ export const updateCart = (email) => dispatch => {
 
         })
 }
-export const removeFromCart = (itemId) => dispatch => {
+export const removeFromCart = (itemId, cart) => dispatch => {
     console.log(prefix, 'color:lightblue', `Iniciando remoção do item ${itemId} do carrinho`)
     dispatch({
         type: START_REMOVING_FROM_CART,
     })
-    firebaseFirestore.collection('carrinho').doc(itemId).delete()
+    firebaseFirestore.collection('carrinhos').doc(itemId).delete()
         .then(res => {
             console.log(prefix, 'color:lightblue', `Item ${itemId} removido do carrinho`)
+            let newCart = cart.filter(function( obj ) {
+                return obj.id_purchase !== itemId;
+            });
             dispatch({
                 type: STOP_REMOVING_FROM_CART,
+                payload: newCart
             })
         })
         .catch(error => {
-            console.log(prefix, 'color:lightblue', `Erro ao remover Item ${itemId} do carrinho`)
+            console.log(prefix, 'color:lightblue', `Erro ao remover Item ${itemId} do carrinho ${error}`)
             let pack = {
                 itemId,
                 error

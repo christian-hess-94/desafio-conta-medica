@@ -90,7 +90,7 @@ let CreateAccountForm = (props) => {
 }
 
 CreateAccountForm = reduxForm({
-    form: 'login-account',
+    form: 'create-account',
     validate,
     destroyOnUnmount: false
 })(CreateAccountForm)

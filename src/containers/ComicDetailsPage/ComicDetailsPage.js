@@ -1,8 +1,8 @@
 import { Avatar, Card, CardContent, CardHeader, CardMedia, Container, Grid, Typography } from '@material-ui/core';
 import React, { Component } from 'react'
 
-import CharactersCard from './FullComicCard/CharactersCard/CharactersCard'
-import CreatorsCard from './FullComicCard/CreatorsCard/CreatorsCard';
+import CharactersCard from './CharactersCard/CharactersCard'
+import CreatorsCard from './CreatorsCard/CreatorsCard';
 import FullComicCard from './FullComicCard/FullComicCard';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import marvelInstance from './../../helpers/axios/marvelInstance'
@@ -83,7 +83,6 @@ export default class ComicDetailsPage extends Component {
             })
     }
 
-
     render() {
 
         let fullComicCard = undefined
@@ -115,7 +114,7 @@ export default class ComicDetailsPage extends Component {
                     charactersCard = <CharactersCard characters={this.state.characters} />
                 } else {
                     console.log("%c Não tem heroes", 'font-size:15px;color:lightblue');
-                    charactersCard = <Typography variant="h6" component="h2">Este quadrinho não possui heroes</Typography>
+                    charactersCard = <Typography variant="h6" component="h2">No heroes specified</Typography>
                 }
 
             }
@@ -125,16 +124,16 @@ export default class ComicDetailsPage extends Component {
         let creatorsCard = undefined
         let loadingCreatorSpinner = undefined
         if (this.state.creatorsLoading) {
-            loadingCreatorSpinner = <Spinner text="Loading criadores..." />
+            loadingCreatorSpinner = <Spinner text="Loading creators..." />
         } else {
             loadingCreatorSpinner = undefined
             if (this.state.creators && (!this.state.creatorsError)) {
-                console.log("%c Renderizando informações dos criadores", 'font-size:25px;color:lightblue');
+                console.log("%c Renderizando informações dos creators", 'font-size:25px;color:lightblue');
                 if (this.state.creators.length > 0) {
                     creatorsCard = <CreatorsCard creators={this.state.creators} />
                 } else {
-                    console.log("%c Não tem criadores", 'font-size:15px;color:lightblue');
-                    creatorsCard = <Typography variant="h6" component="h2">Este quadrinho não possui criadores</Typography>
+                    console.log("%c Não tem creators", 'font-size:15px;color:lightblue');
+                    creatorsCard = <Typography variant="h6" component="h2">No creators specified</Typography>
                 }
 
             }
@@ -155,7 +154,7 @@ export default class ComicDetailsPage extends Component {
                                 {charactersCard}
                             </Grid>
                             <Grid item>
-                                <Typography variant="h5" component="h2">Criadores</Typography>
+                                <Typography variant="h5" component="h2">Creators</Typography>
                                 {loadingCreatorSpinner}
 
                                 {creatorsCard}

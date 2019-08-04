@@ -5,10 +5,13 @@ import {
     START_ACCOUNT_CREATION,
     START_LOG_INTO_ACCOUNT,
     STOP_ACCOUNT_CREATION,
-    STOP_LOG_INTO_ACCOUNT
+    STOP_LOG_INTO_ACCOUNT,
+    START_UPDATING_CART
 } from "./types"
 
 import { firebaseAuth } from './../../firebase/FirebaseEnv'
+
+import {updateCart} from './CheckoutActions'
 
 const prefix = '%c [AuthenticationActions]'
 export const createNewAccount = (accountData) => dispatch => {
@@ -43,6 +46,10 @@ export const logIntoAccount = (accountData) => dispatch => {
             console.log(prefix, 'color:lightblue', "Conta conectada com sucesso");
             dispatch({
                 type: STOP_LOG_INTO_ACCOUNT,
+                payload: accountData
+            })
+            dispatch({
+                type: START_UPDATING_CART,
                 payload: accountData
             })
         })
