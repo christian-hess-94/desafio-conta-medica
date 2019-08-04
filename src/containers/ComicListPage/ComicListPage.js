@@ -54,7 +54,7 @@ class ComicListPage extends Component {
         return (
             <Container>
                 {
-                    this.state.comics.length === 0 ? <Spinner text="Loading comics list..." /> :
+                    this.state.comics.length === 0 ? <Spinner text="Loading comics list..." subtext="If this takes too long, enable your browser to run 'unsafe' scripts and reload the page." /> :
                         <Grid container direction="row" spacing={4} style={{ justifyContent: 'center', alignContent: 'center', marginTop: 90 }}>
                             <Grid item>
                                 {firstColumn.map(comic => {

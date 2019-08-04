@@ -54,7 +54,9 @@ let LoginForm = (props) => {
             <form onSubmit={handleSubmit}>
                 <CardHeader 
                 title={<Typography variant="h3" component="h2">Welcome to Marvel Online Store!</Typography>}
-                
+                avatar = {
+                    <Avatar src="https://vignette.wikia.nocookie.net/logopedia/images/d/d1/Marvel_Entertainment_Logo_%282002%29.jpg/revision/latest?cb=20190325210454"/>
+                }
                 />
                 <CardContent>
                     <Typography variant="body1" component="h2">Please log in below, or create an account to continue</Typography>
