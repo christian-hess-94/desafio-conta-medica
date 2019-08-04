@@ -22,8 +22,8 @@ class LoginPage extends Component {
 
     onSubmit = (values) => {
         this.setState({ loading: { submitting: true } })
-        this.props.logIntoAccount(values)
-        // this.props.logIntoAccount({ email: 'christianhess94@gmail.com', password: 'chr15091994' })
+        //this.props.logIntoAccount(values)
+        this.props.logIntoAccount({ email: 'christianhess94@gmail.com', password: 'chr15091994' })
 
     }
     render() {

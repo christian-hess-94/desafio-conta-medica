@@ -1,8 +1,12 @@
-import { Avatar, Card, CardContent, CardHeader, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
+import { Avatar, Card, CardContent, CardHeader, ListItem, ListItemAvatar, ListItemText, ListItemSecondaryAction, IconButton, Tooltip } from '@material-ui/core';
 import React, { Component } from 'react';
 
 import Auxiliary from '../../../hoc/Auxiliary';
 import marvelInstance from './../../../helpers/axios/marvelInstance'
+import { Delete } from '@material-ui/icons'
+import { connect } from 'react-redux'
+import { removeFromCart } from './../../../helpers/redux/actions/CheckoutActions'
+import Spinner from './../../../components/UI/Spinner/Spinner'
 
 class ComicItem extends Component {
 
@@ -37,6 +41,10 @@ class ComicItem extends Component {
         this.props.history.push(`/comics/details/${this.state.comic.id}`)
     }
 
+    removeHandler = () => {
+        this.props.removeFromCart(this.props.id_purchase)
+    }
+
 
     render() {
 
@@ -47,14 +55,29 @@ class ComicItem extends Component {
             comicAvatar = <Avatar />
         }
         return (
-            <ListItem button onClick={this.goToDetails}>
-                <ListItemAvatar>
-                    {comicAvatar}
-                </ListItemAvatar>
-                <ListItemText primary={this.state.comic.title} secondary={`Price: ${this.state.comic.prices ? this.state.comic.prices[0].price : 'It\'s free!'}`} />
-            </ListItem>
+
+            this.state.loading ? <Spinner /> :
+                <Tooltip title={this.props.id_purchase}>
+
+                    <ListItem button onClick={this.goToDetails}>
+                        <ListItemAvatar>
+                            {comicAvatar}
+                        </ListItemAvatar>
+                        <ListItemText primary={this.state.comic.title} secondary={`Price: ${this.state.comic.prices ? this.state.comic.prices[0].price : 'It\'s free!'}`} />
+                        <ListItemSecondaryAction>
+                            <IconButton onClick={this.removeHandler} edge="end" aria-label="comments">
+                                <Delete />
+                            </IconButton>
+                        </ListItemSecondaryAction>
+                    </ListItem>
+                </Tooltip>
+
         );
     }
 }
 
-export default ComicItem;
+const mapStateToProps = state => ({
+    cart: state.checkout.cart
+})
+
+export default connect(mapStateToProps, { removeFromCart })(ComicItem);

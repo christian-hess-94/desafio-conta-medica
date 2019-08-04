@@ -22,7 +22,7 @@ class CheckoutPage extends Component {
                         <List>
                             {this.props.cart.map(purchase => {
                                 return (
-                                    <ComicItem history={this.props.history} key={purchase.id} id_comic={purchase.id_comic} />
+                                    <ComicItem history={this.props.history} key={purchase.id} id_purchase={purchase.id_purchase} id_comic={purchase.id_comic} />
                                 )
                             })}
                         </List>

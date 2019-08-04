@@ -61,5 +61,29 @@ export const updateCart = (email) => dispatch => {
             console.log(prefix, 'color:lightblue', "Erro ao atualizar Carrinho")
 
         })
+}
+export const removeFromCart = (itemId) => dispatch => {
+    console.log(prefix, 'color:lightblue', `Iniciando remoção do item ${itemId} do carrinho`)
+    dispatch({
+        type: START_REMOVING_FROM_CART,
+    })
+    firebaseFirestore.collection('carrinho').doc(itemId).delete()
+        .then(res => {
+            console.log(prefix, 'color:lightblue', `Item ${itemId} removido do carrinho`)
+            dispatch({
+                type: STOP_REMOVING_FROM_CART,
+            })
+        })
+        .catch(error => {
+            console.log(prefix, 'color:lightblue', `Erro ao remover Item ${itemId} do carrinho`)
+            let pack = {
+                itemId,
+                error
+            }
+            dispatch({
+                type: ERROR_WHEN_REMOVING_FROM_CART,
+                payload: pack
+            })
+        })
 
 }

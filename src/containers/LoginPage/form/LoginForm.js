@@ -89,7 +89,7 @@ let LoginForm = (props) => {
 
 LoginForm = reduxForm({
     form: 'login-account',
-    validate,
+    //validate,
     destroyOnUnmount: false
 })(LoginForm)
 

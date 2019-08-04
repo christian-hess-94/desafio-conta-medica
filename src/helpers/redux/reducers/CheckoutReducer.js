@@ -29,6 +29,7 @@ const initialState = {
     updatedCart: false,
     errorWhenUpdatingCart: false,
     errorCodeWhenUpdatingCart: '',
+    whichItemIdFailedRemoving: '',
 
     cart: []
 }
@@ -82,8 +83,37 @@ export default function (state = initialState, action) {
                 ...state,
                 updatingCart: false,
                 updatedCart: true,
+                errorWhenUpdatingCart: true,
+                errorCodeWhenUpdatingCart: action.payload
+            }
+
+        case START_REMOVING_FROM_CART:
+            console.log(prefix, 'color:lightgreen', "Iniciando remoção do item do carrinho")
+            return {
+                ...state,
+                removingFromCart: true,
+                removedFromCart: false
+            }
+
+        case STOP_REMOVING_FROM_CART:
+            console.log(prefix, 'color:lightgreen', "Item removido do carrinho")
+            return {
+                ...state,
+                removingFromCart: false,
+                removedFromCart: true,
                 cart: action.payload
             }
+        case ERROR_WHEN_REMOVING_FROM_CART:
+            console.log(prefix, 'color:lightgreen', "Erro ao remover item do carrinho")
+            return {
+                ...state,
+                removingFromCart: false,
+                removedFromCart: true,
+                errorWhenRemovingFromCart: true,
+                errorCodeWhenRemovingFromCart: action.payload.errorCode,
+                whichItemIdFailedRemoving: action.payload.itemId
+            }
+
 
 
 
