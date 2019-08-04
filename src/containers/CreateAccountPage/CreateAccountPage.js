@@ -28,7 +28,7 @@ class CreateAccountPage extends Component {
     }
     render() {
         if (this.props.accountCreated) {
-            console.log("%c Props: ", 'font-size:24px', this.props);
+            // console.log("%c Props: ", 'font-size:24px', this.props);
             this.props.logIntoAccount(this.props.createdAccount)
         }
 

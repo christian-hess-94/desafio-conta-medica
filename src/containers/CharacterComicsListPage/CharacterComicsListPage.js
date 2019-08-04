@@ -11,14 +11,14 @@ class CharacterComicsListPage extends Component {
         comics:[]
     }
     componentDidMount() {
-        console.log('Seaching comics')
+        // console.log('Seaching comics')
         marvelInstance.get(`/v1/public/characters/${this.props.match.params.id}/comics?ts=1&apikey=24f5858e2b4667852c2576f8c1477b9e&hash=48836ab485d1e75d8a06e5c4bece9731`)
         .then(res=>{
-            console.log("Quadrinhos do heroi", res.data.data.results)
+            // console.log("Quadrinhos do heroi", res.data.data.results)
             this.setState({comics: res.data.data.results})
         })
         .catch(error=>{
-            console.log('There was an error: ', error)
+            // console.log('There was an error: ', error)
             this.setState({error:true})
         })
         .finally(()=>{

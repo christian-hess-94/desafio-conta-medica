@@ -11,7 +11,7 @@ import {
 
 import { firebaseAuth } from './../../firebase/FirebaseEnv'
 
-import {updateCart} from './CheckoutActions'
+import { updateCart } from './CheckoutActions'
 
 const prefix = '%c [AuthenticationActions]'
 export const createNewAccount = (accountData) => dispatch => {

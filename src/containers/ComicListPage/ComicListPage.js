@@ -15,7 +15,7 @@ class ComicListPage extends Component {
     componentDidMount() {
         marvelInstance.get('/v1/public/comics?ts=1&apikey=24f5858e2b4667852c2576f8c1477b9e&hash=48836ab485d1e75d8a06e5c4bece9731')
             .then(response => {
-                console.log(response.data.data.results);
+                // console.log(response.data.data.results);
 
                 this.setState({
                     comics: response.data.data.results
@@ -36,7 +36,7 @@ class ComicListPage extends Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
 
         let firstColumn = []
 

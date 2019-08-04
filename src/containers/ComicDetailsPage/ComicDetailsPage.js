@@ -28,16 +28,16 @@ export default class ComicDetailsPage extends Component {
         //!pegando comic
         marvelInstance.get(`/v1/public/comics/${this.props.match.params.id}?ts=1&apikey=24f5858e2b4667852c2576f8c1477b9e&hash=48836ab485d1e75d8a06e5c4bece9731`)
             .then(response => {
-                console.log('Response comic', response);
-                console.log("%c STATE antes comic", 'font-size:25px;color:green', this.state);
+                // console.log('Response comic', response);
+                // console.log("%c STATE antes comic", 'font-size:25px;color:green', this.state);
                 this.setState({
                     comicLoading: false,
                     comic: response.data.data.results[0],
                 })
-                console.log("%c STATE apos comic", 'font-size:25px;color:red', this.state);
+                // console.log("%c STATE apos comic", 'font-size:25px;color:red', this.state);
             })
             .catch(error => {
-                console.log('Error comic', error);
+                // console.log('Error comic', error);
                 this.setState({
                     comicLoading: false,
                     comicError: true,
@@ -46,17 +46,17 @@ export default class ComicDetailsPage extends Component {
         //! pegando characters
         marvelInstance.get(`/v1/public/comics/${this.props.match.params.id}/characters?ts=1&apikey=24f5858e2b4667852c2576f8c1477b9e&hash=48836ab485d1e75d8a06e5c4bece9731`)
             .then(response => {
-                console.log('Response characters', response.data);
-                console.log("%c STATE antes characters", 'font-size:25px;color:green', this.state);
+                // console.log('Response characters', response.data);
+                // console.log("%c STATE antes characters", 'font-size:25px;color:green', this.state);
                 this.setState({
                     charactersLoading: false,
                     characters: response.data.data.results
                 })
-                console.log("%c STATE apos characters", 'font-size:25px;color:red', this.state);
+                // console.log("%c STATE apos characters", 'font-size:25px;color:red', this.state);
 
             })
             .catch(error => {
-                console.log('Error characters', error);
+                // console.log('Error characters', error);
                 this.setState({
                     charactersLoading: false,
                     charactersError: true
@@ -66,16 +66,16 @@ export default class ComicDetailsPage extends Component {
         //! pegando creators
         marvelInstance.get(`/v1/public/comics/${this.props.match.params.id}/creators?ts=1&apikey=24f5858e2b4667852c2576f8c1477b9e&hash=48836ab485d1e75d8a06e5c4bece9731`)
             .then(response => {
-                console.log('Response creators', response.data);
-                console.log("%c STATE antes creators", 'font-size:25px;color:green', this.state);
+                // console.log('Response creators', response.data);
+                // console.log("%c STATE antes creators", 'font-size:25px;color:green', this.state);
                 this.setState({
                     creatorsLoading: false,
                     creators: response.data.data.results ? response.data.data.results : []
                 })
-                console.log("%c STATE apos creators", 'font-size:25px;color:red', this.state);
+                // console.log("%c STATE apos creators", 'font-size:25px;color:red', this.state);
             })
             .catch(error => {
-                console.log('Error creators', error);
+                // console.log('Error creators', error);
                 this.setState({
                     creatorsLoading: false,
                     creatorsError: true
@@ -93,7 +93,7 @@ export default class ComicDetailsPage extends Component {
         } else {
             loadingComicSpinner = undefined
             if (this.state.comic && (!this.state.comicError)) {
-                console.log("%c Renderizando informações do quadrinho", 'font-size:25px;color:lightblue', this.state);
+                // console.log("%c Renderizando informações do quadrinho", 'font-size:25px;color:lightblue', this.state);
 
                 fullComicCard = <FullComicCard
                     comic={this.state.comic} />
@@ -109,11 +109,11 @@ export default class ComicDetailsPage extends Component {
         } else {
             loadingCharactersSpinner = undefined
             if (this.state.characters && (!this.state.charactersError)) {
-                console.log("%c Renderizando informações dos heroes", 'font-size:25px;color:lightblue');
+                // console.log("%c Renderizando informações dos heroes", 'font-size:25px;color:lightblue');
                 if (this.state.characters.length > 0) {
                     charactersCard = <CharactersCard characters={this.state.characters} />
                 } else {
-                    console.log("%c Não tem heroes", 'font-size:15px;color:lightblue');
+                    // console.log("%c Não tem heroes", 'font-size:15px;color:lightblue');
                     charactersCard = <Typography variant="h6" component="h2">No heroes specified</Typography>
                 }
 
@@ -128,11 +128,11 @@ export default class ComicDetailsPage extends Component {
         } else {
             loadingCreatorSpinner = undefined
             if (this.state.creators && (!this.state.creatorsError)) {
-                console.log("%c Renderizando informações dos creators", 'font-size:25px;color:lightblue');
+                // console.log("%c Renderizando informações dos creators", 'font-size:25px;color:lightblue');
                 if (this.state.creators.length > 0) {
                     creatorsCard = <CreatorsCard creators={this.state.creators} />
                 } else {
-                    console.log("%c Não tem creators", 'font-size:15px;color:lightblue');
+                    // console.log("%c Não tem creators", 'font-size:15px;color:lightblue');
                     creatorsCard = <Typography variant="h6" component="h2">No creators specified</Typography>
                 }
 

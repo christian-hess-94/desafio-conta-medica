@@ -47,7 +47,7 @@ export const updateCart = (email) => dispatch => {
             snapshot.forEach(purchase => {
                 let purchaseId = purchase.id;
                 let comicData = purchase.data();
-                console.log("purchase data: ", purchase.data());
+                // console.log("purchase data: ", purchase.data());
                 comicData['id_purchase'] = purchaseId
                 fullCart.push(comicData)
             })
@@ -70,7 +70,7 @@ export const removeFromCart = (itemId, cart) => dispatch => {
     firebaseFirestore.collection('carrinhos').doc(itemId).delete()
         .then(res => {
             console.log(prefix, 'color:lightblue', `Item ${itemId} removido do carrinho`)
-            let newCart = cart.filter(function( obj ) {
+            let newCart = cart.filter(function (obj) {
                 return obj.id_purchase !== itemId;
             });
             dispatch({

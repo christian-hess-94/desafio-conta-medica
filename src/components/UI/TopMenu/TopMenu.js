@@ -1,4 +1,4 @@
-import { AppBar, Badge, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Badge, Button, IconButton, Menu, MenuItem, Toolbar, Typography, Avatar } from '@material-ui/core';
 
 import { MenuOutlined } from '@material-ui/icons'
 import React from 'react';
@@ -25,10 +25,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const TopMenu = (props) => {
-    console.log("TOPMENU PROPS", props);
+    // console.log("TOPMENU PROPS", props);
 
     if (!props.updatedCart && props.cart.length >= 0) {
-        console.log("Buscando itens do carrinho");
+        // console.log("Buscando itens do carrinho");
 
         props.updateCart(props.loggedAccount.email)
     }
@@ -52,7 +52,7 @@ const TopMenu = (props) => {
         setAnchorEl(null);
     }
     const classes = useStyles();
-    console.log("Numero de coisas no carrinho", props.cart.length);
+    // console.log("Numero de coisas no carrinho", props.cart.length);
 
     return (
         <div className={classes.root}>
@@ -63,7 +63,6 @@ const TopMenu = (props) => {
                         Home
                     </Button>
                     <Typography variant="h6" className={classes.title}>
-                        Marvel
                     </Typography>
                     <IconButton
                         color="inherit"

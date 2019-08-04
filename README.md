@@ -17,20 +17,21 @@ Abaixo estão citadas as funcionalidades presentes no projeto.
 Abaixo estão citados os processos necessários para instalar e inicializar o projeto
 
 ### `npm install`
-Com o [NodeJS](http://nodejs.org) instalado no computador, execute o comando `npm install --save` no root do projeto para instalar todas as dependencias listadas na seção "Dependências" deste projeto
+Com o [NodeJS](https://nodejs.org) instalado no computador, execute o comando `npm install --save` no root do projeto para instalar todas as dependencias listadas na seção "Dependências" deste projeto
 
 ### `npm start`
 Após executado o comando `npm install --save`, executar o comando `npm start` para iniciar o projeto. A porta 3000 do computador deve estar liberada para que o projeto seja inicializados sem problemas.
 Pode ser que seja necessário dar permissão de administrador, e liberação no Firewall do Windows, ao NodeJS.
 
 ### `localhost`
-Após o serviço ser inicializado, acessar http://localhost:3000 em qualquer navegador para visualizar o projeto.
+Após o serviço ser inicializado, acessar https://localhost:3000 em qualquer navegador para visualizar o projeto.
 
-##Possíveis bugs
+##Possíveis problemas na inicialização
 
 ### Unsafe Scripts
-Alguns navegadores podem bloquear a execução de alguns scripts devido o local de hosting não ter um domínio próprio registrado. Isso faz com que as telas fiquem permanentemente e 'Loading'. Quando isso ocorre, deve-se permitir que o navegador execute os scripts.
-1. Chrome: Clique no símbolo de um escudo preto-e-branco perto da URL do projeto. No popup que aparecer, clique em "Allow unsafe scripts"
+O navegador Google Chrome pode bloquear a execução de alguns scripts devido o local de hosting ser no formato HTTPS. 
+Isso faz com que as telas fiquem permanentemente em 'Loading'. Quando isso ocorre, deve-se permitir que o navegador execute os scripts.
+1. Clique no símbolo de um escudo preto-e-branco perto da URL do projeto. No popup que aparecer, clique em "Allow unsafe scripts"
 
 ### Redux Dev Tools
 Este projeto foi desenvolvido com ajuda do Redux Dev Tools, uma ferramentas para auxiliar no desenvolvimento de aplicações que usem o Redux para gerenciar o estado da aplicação. Essa funcionalidade deve estar desabilitada em casos de testes mas caso interfira na execução do projeto, siga os passos abaixo:

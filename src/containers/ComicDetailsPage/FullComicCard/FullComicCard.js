@@ -20,11 +20,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const FullComicCard = (props) => {
-    console.log(props.comic.prices);
+    // console.log(props.comic.prices);
 
     const handleAddToCart = () => {
-        console.log("Add to cart");
-        console.log(props);
+        // console.log("Add to cart");
+        // console.log(props);
         let comic_price = undefined
         if (props.comic.prices[0].price) {
             comic_price = props.comic.prices[0].price
