@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import React from 'react';
 import Store from './helpers/redux/Store'
 
+//comment
 function App() {
     return (
         <div className="App">
