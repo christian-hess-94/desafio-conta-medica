@@ -10,6 +10,7 @@ import React from 'react';
 import Store from './helpers/redux/Store'
 
 //comment
+//comment 2
 function App() {
     return (
         <div className="App">
